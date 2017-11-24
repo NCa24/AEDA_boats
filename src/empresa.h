@@ -21,6 +21,7 @@ public:
 	int getClientsFromFile();
 	int writeToFile();
 	vector <Cliente*> getClients();
+	void loginFornecedor();
 };
 
 

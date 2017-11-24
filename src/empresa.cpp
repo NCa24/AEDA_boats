@@ -37,6 +37,24 @@ void Empresa::addFornecedor(){
 	this->fornecedores.push_back(f);
 }
 
+void Empresa::loginFornecedor() {
+	string fornecedor;
+	int n;
+	cout << "inserir nome do fornecedor";
+	cin >> fornecedor;
+
+	for(unsigned int i = 0 ; i < fornecedores.size() ; i++)
+	{
+		if(fornecedores[i]->getNome() == fornecedor)
+		{
+			cout << "quantas ofertas quer adicionar?";
+			cin >> n;
+			fornecedores[i]->addOfertas(n);
+		}
+	}
+	cout << "fornecedor não foi encontrado";
+}
+
 void Empresa::addPoints(ClienteRegistado cliente){
 	cliente.setPoints();
 }
