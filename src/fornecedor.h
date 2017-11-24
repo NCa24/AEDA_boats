@@ -43,6 +43,7 @@ class Fornecedor {
 	vector<Oferta*> listaOfertas;
 public:
 	Fornecedor(string nome, int nif, string morada);
+	vector <Oferta> getOfertas();
 	void printOfertas(int data, int hora);
 	void addOfertas(int n);
 	string getNome();

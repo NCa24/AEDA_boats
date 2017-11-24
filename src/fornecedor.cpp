@@ -20,6 +20,10 @@ string Fornecedor::getMorada() {
 	return morada;
 }
 
+vector<Oferta> Fornecedor::getOfertas() {
+	return listaOfertas;
+}
+
 Oferta::Oferta(int tipo, int destino, vector<int> dias){
 
 	switch(tipo){

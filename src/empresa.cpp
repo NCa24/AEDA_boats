@@ -1,4 +1,5 @@
 #include "empresa.h"
+#include "fornecedor.h"
 
 using namespace std;
 
@@ -42,13 +43,21 @@ void Empresa::loginCliente() {
 			case 2:
 				//cancelarReserva();
 			}
-
-
-
 		}
-
-
 	}*/
+}
+
+void Empresa::criarReserva(int data, int hora, Oferta oferta) {
+
+	for(unsigned int j = 0 ; j < fornecedores.size() ; j++)
+	{
+		for(unsigned int i = 0 ; i < fornecedores[i].getOfertas().size() ; i++) {
+			//para criar uma reserva precisamos de encontrar a oferta na listaOfertas do fornecedor, ver se a data
+			//está disponível (se existe e se não está esgotada)
+			if(fornecedores[i].getOfertas()[i].checkData(data)  && fornecedores[i].getOfertas()[i].clientes.size() > fornecedores[i].getOfertas()[i].lotacao)
+				cout << fornecedores[i].getOfertas()[i];
+	}
+	}
 }
 
 void Empresa::addFornecedor(){

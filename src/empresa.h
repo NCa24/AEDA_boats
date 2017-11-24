@@ -25,6 +25,7 @@ public:
 	vector <Fornecedor*> getFornecedores();
 	int clientNumber();
 	void loginCliente();
+	void criarReserva(int, int, Oferta);
 	void loginFornecedor();
 	int readFornecedoresFromFile();
 	int writeFornecedoresToFile();

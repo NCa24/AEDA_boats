@@ -43,17 +43,3 @@ void ClienteRegistado::setPoints(){
 	//incremento de 10 pontos por reserva
 	this->nPontos += 10;
 };
-/*
-void Cliente::criarReserva(int data, int hora, Oferta oferta) {
-
-	for(unsigned int i = 0 ; i < listaOfertas.size() ; i++) {
-			//para criar uma reserva precisamos de encontrar a oferta na listaOfertas do fornecedor, ver se a data
-			//está disponível (se existe e se não está esgotada)
-			if(listaOfertas[i].checkData(data)  && listaOfertas[i].clientes.size() > listaOfertas[i].lotacao)
-				listaOfertas.reservas
-
-
-	}
-}
-*/
-
