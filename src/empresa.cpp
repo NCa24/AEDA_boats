@@ -20,7 +20,6 @@ void Empresa::addCliente(){
 	cin >> nome;
 	clientes.push_back(new ClienteRegistado(nome, numberOfClients));
 	numberOfClients = clientes.size();
-
 }
 
 void Empresa::addFornecedor(){
@@ -32,29 +31,32 @@ void Empresa::addFornecedor(){
 	cin >> nif;
 	cout << "Indique a morada:" << endl;
 	cin >> morada;
-	Fornecedor *f = new Fornecedor(nome, nif, morada);
+	/*Fornecedor *f = new Fornecedor(nome, nif, morada);
 	cout << "Indique o numero de ofertas que deseja disponibilizar:" << endl;
 	cin >> nOfertas;
 	f->addOfertas(nOfertas);
-	this->fornecedores.push_back(f);
+	this->fornecedores.push_back(f);*/
+	fornecedores.push_back(new Fornecedor(nome, nif, morada));
 }
 
 void Empresa::loginFornecedor() {
 	string fornecedor;
 	int n;
-	cout << "inserir nome do fornecedor";
+	cout << "inserir nome do fornecedor" << endl;
 	cin >> fornecedor;
 
 	for(unsigned int i = 0 ; i < fornecedores.size() ; i++)
 	{
 		if(fornecedores[i]->getNome() == fornecedor)
 		{
-			cout << "quantas ofertas quer adicionar?";
+			cout << "olá " << fornecedores[i]->getNome() << " quantas ofertas quer adicionar?" <<endl;
 			cin >> n;
 			fornecedores[i]->addOfertas(n);
+			cout << "adeus!" << endl;
 		}
 	}
-	cout << "fornecedor não foi encontrado";
+	return;
+	cout << "fornecedor não foi encontrado" << endl;
 }
 
 
@@ -133,20 +135,19 @@ int Empresa::readFornecedoresFromFile(){
 			string morada = line.substr(secndSemiColon + 2, thirdSemiColon - secndSemiColon - 3); //retira morada do cliente
 			int nif;
 			nif = stoi( aux );
-			fornecedores.push_back(new Fornecedor(name, nif, morada); //fornecedor lido do ficheiro entra no vector de fornecedores
+			fornecedores.push_back(new Fornecedor(name, nif, morada)); //fornecedor lido do ficheiro entra no vector de fornecedores
 		};
 		file.close();
 		return 1;
 };
 
 int Empresa::writeFornecedoresToFile(){
-	fstream file ("fornecedores.txt", ios::out | ios::trunc);
+	fstream file2 ("fornecedores.txt", ios::out | ios::trunc);
 	int i = 0;
 	while (i < getFornecedores().size())
 	{
-			file << getFornecedores()[i]->getNome() << " ; " << getFornecedores()[i]->getNIF() << " ; " << getFornecedores()[i]->getMorada() << endl;
-		};
+			file2 << getFornecedores()[i]->getNome() << " ; " << getFornecedores()[i]->getNIF() << " ; " << getFornecedores()[i]->getMorada() << endl;
 		i++;
 	};
-	file.close();
+	file2.close();
 }

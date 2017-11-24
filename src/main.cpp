@@ -11,9 +11,10 @@ int main() {
 	Empresa empresa;
 	string fornecedor, cliente;
 	empresa.getClientsFromFile();
-	/*string decision = "in";
+	empresa.readFornecedoresFromFile();
+	string decision = "in";
 	while(decision != "exit"){
-		cout << "1 - cliente; 2 - fornecedor:" << endl;
+		cout << "1 - cliente; 2 - fornecedor; 3 - exit:" << endl;
 		cin >> decision;
 		if(decision == "cliente"){
 			cout << endl << "Clientes: 1 - login; 2 - registar; 3 - visitante:" << endl;
@@ -33,14 +34,14 @@ int main() {
 
 			} else if (decision == "registar"){
 				empresa.addFornecedor();
-			} else if (decision == "visitante"){
-							//visitante
-			}
-		};
-	};*/
-	empresa.addCliente();
-	empresa.addPoints(empresa.getClients()[0]);
+			};
+		}
+		else if (decision == "exit")
+			break;
+	};
+	//empresa.addPoints(empresa.getClients()[0]);
 	empresa.writeToFile();
+	empresa.writeFornecedoresToFile();
 
 	return 0;
 }

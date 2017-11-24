@@ -53,8 +53,6 @@ Oferta::Oferta(int tipo, int destino, vector<int> dias){
 		}
 
 		this->datasIndisponiveis = dias;
-
-
 }
 
 void Fornecedor::addOfertas(int n){
