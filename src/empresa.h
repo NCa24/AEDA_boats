@@ -5,8 +5,8 @@
 #include <fstream>
 #include <string>
 
-#include "Fornecedor.h"
-#include "Cliente.h"
+#include "fornecedor.h"
+#include "cliente.h"
 
 class Empresa {
 	vector<Fornecedor*> fornecedores;

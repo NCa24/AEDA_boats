@@ -4,7 +4,8 @@
 #include <string>
 #include <vector>
 #include <sstream>
-#include "Empresa.h"
+#include "empresa.h"
+#include "reserva.h"
 
 using namespace std;
 
@@ -18,6 +19,7 @@ class Oferta {
 	int lotacao;
 	int distancia;
 	vector<int> datasIndisponiveis;
+	vector<Reserva*> reservas;
 	//vector<Cliente*> clientes;
 public:
 	Oferta(int, int, vector<int>);
@@ -26,6 +28,7 @@ public:
 	void setPreco(int, int);
 	int getLugaresVagos();
 	bool checkData(int data); //verifica se a data esta disponivel
+
 	//int getDatasIndisponiveis(); mudar para vector<int> ou stringstream
 };
 

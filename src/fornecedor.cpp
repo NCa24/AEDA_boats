@@ -1,4 +1,5 @@
 #include "Fornecedor.h"
+#include "reserva.h"
 
 
 Fornecedor::Fornecedor(string nome, int nif, string morada){
@@ -62,3 +63,20 @@ void Fornecedor::addOfertas(int n){
 		this->listaOfertas.push_back(of);
 	}
 }
+
+bool Oferta::checkData(int data) {
+	//data está disponível se não está no vector datasIndisponiveis
+	for(unsigned int i = 0 ; i < datasIndisponiveis.size() ; i++) {
+		if(datasIndisponiveis[i] == data)
+			return false;
+	}
+	return true;
+}
+
+void Reserva::removerCliente(Cliente cliente) {
+	for(unsigned int i = 0 ; i < clientes.size() ; i++) {
+		if(clientes[i].getId() == cliente.getId())
+			clientes.erase(clientes.begin() + i);
+	}
+}
+

@@ -5,6 +5,8 @@
 #include <iostream>
 #include <string>
 
+#include "fornecedor.h"
+
 using namespace std;
 
 
@@ -18,6 +20,7 @@ public:
 	Cliente(int id);
 	~Cliente();
 	int getId();
+	//void criarReserva(int, int, Oferta);
 };
 
 class ClienteRegistado: public Cliente{
@@ -26,7 +29,6 @@ class ClienteRegistado: public Cliente{
 public:
 	ClienteRegistado(string nome);
 	ClienteRegistado(string nome, int id, int points);
-	void inscreverCliente(/*TODO: Criar Evento*/);
 	int getId();
 	string getName();
 	int getNPontos();
