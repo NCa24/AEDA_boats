@@ -1,5 +1,9 @@
+<<<<<<< HEAD
 #include "Fornecedor.h"
 #include "reserva.h"
+=======
+#include "fornecedor.h"
+>>>>>>> branch 'master' of https://github.com/NCa24/AEDA_boats.git
 
 
 Fornecedor::Fornecedor(string nome, int nif, string morada){

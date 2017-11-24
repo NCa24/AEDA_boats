@@ -2,6 +2,7 @@
 #define SRC_EMPRESA_H_
 
 #include <vector>
+#include <iostream>
 #include <fstream>
 #include <string>
 
@@ -9,16 +10,17 @@
 #include "cliente.h"
 
 class Empresa {
-	vector<Fornecedor*> fornecedores;
 	vector<Cliente*> clientes;
+	vector<Fornecedor*> fornecedores;
 public:
 	Empresa();
 	void addCliente();
 	void addFornecedor();
-	void addPoints(Cliente);
+	void addPoints(ClienteRegistado);
 	void clientMenu();
-	void getClientsFromFile();
-	void writeToFile();
+	int getClientsFromFile();
+	int writeToFile();
+	vector <Cliente*> getClients();
 };
 
 

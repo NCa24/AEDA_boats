@@ -5,8 +5,6 @@
 #include <iostream>
 #include <string>
 
-#include "fornecedor.h"
-
 using namespace std;
 
 
@@ -18,8 +16,9 @@ protected:
 public:
 	Cliente();
 	Cliente(int id);
-	~Cliente();
 	int getId();
+	virtual string getName();
+	virtual int getNPontos();
 	//void criarReserva(int, int, Oferta);
 };
 
