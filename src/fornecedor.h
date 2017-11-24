@@ -4,6 +4,8 @@
 #include <string>
 #include <vector>
 #include <sstream>
+#include <iostream>
+#include <fstream>
 
 #include "reserva.h"
 
@@ -44,6 +46,8 @@ public:
 	void printOfertas(int data, int hora);
 	void addOfertas(int n);
 	string getNome();
+	int getNIF();
+	string getMorada();
 };
 
 

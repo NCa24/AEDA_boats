@@ -15,9 +15,7 @@ public:
 	int getId();
 	virtual string getName();
 	virtual int getNPontos();
-
 	virtual void setPoints();
-
 	//void criarReserva(int, int, Oferta);
 
 };
