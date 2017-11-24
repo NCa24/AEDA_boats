@@ -39,9 +39,6 @@ void Empresa::addFornecedor(){
 	this->fornecedores.push_back(f);
 }
 
-<<<<<<< HEAD
-void Empresa::addPoints(Cliente cliente){
-=======
 void Empresa::loginFornecedor() {
 	string fornecedor;
 	int n;
@@ -60,8 +57,7 @@ void Empresa::loginFornecedor() {
 	cout << "fornecedor não foi encontrado";
 }
 
-void Empresa::addPoints(ClienteRegistado cliente){
->>>>>>> branch 'master' of https://github.com/NCa24/AEDA_boats.git
+void Empresa::addPoints(Cliente cliente){
 	cliente.setPoints();
 }
 
