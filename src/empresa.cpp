@@ -22,6 +22,35 @@ void Empresa::addCliente(){
 	numberOfClients = clientes.size();
 }
 
+void Empresa::loginCliente() {
+	string cliente;
+	string decision;
+
+	cout << "inserir nome do cliente" << endl;
+	cin >> cliente;
+
+	/*for (unsigned int i = 0 ; i < clientes.size() ; i++)
+	{
+		if (clientes[i]->getName() == cliente)
+		{
+			cout << "olá " << clientes[i]->getName() << endl;
+			cout << "1 - Fazer Reserva ; 2 - Cancelar Reserva" << endl;
+			cin >> decision;
+			switch(decision) {
+			case 1 :
+				//criarReserva();
+			case 2:
+				//cancelarReserva();
+			}
+
+
+
+		}
+
+
+	}*/
+}
+
 void Empresa::addFornecedor(){
 	string nome, morada;
 	int nif, nOfertas;
@@ -30,6 +59,7 @@ void Empresa::addFornecedor(){
 	cout << "Indique o nif:" << endl;
 	cin >> nif;
 	cout << "Indique a morada:" << endl;
+	//TODO: usar o getline!!
 	cin >> morada;
 	/*Fornecedor *f = new Fornecedor(nome, nif, morada);
 	cout << "Indique o numero de ofertas que deseja disponibilizar:" << endl;
