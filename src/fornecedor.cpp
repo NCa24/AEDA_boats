@@ -12,6 +12,14 @@ string Fornecedor::getNome() {
 	return nome;
 }
 
+int Fornecedor::getNIF(){
+	return nif;
+};
+
+string Fornecedor::getMorada() {
+	return morada;
+}
+
 Oferta::Oferta(int tipo, int destino, vector<int> dias){
 
 	switch(tipo){
@@ -82,5 +90,5 @@ void Reserva::removerCliente(Cliente cliente) {
 		if(clientes[i].getId() == cliente.getId())
 			clientes.erase(clientes.begin() + i);
 	}
-}
+};
 

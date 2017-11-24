@@ -22,8 +22,11 @@ public:
 	int getClientsFromFile();
 	int writeToFile();
 	vector <Cliente*> getClients();
+	vector <Fornecedor*> getFornecedores();
 	int clientNumber();
 	void loginFornecedor();
+	int readFornecedoresFromFile();
+	int writeFornecedoresToFile();
 };
 
 

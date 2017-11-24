@@ -57,12 +57,17 @@ void Empresa::loginFornecedor() {
 	cout << "fornecedor não foi encontrado";
 }
 
+
 void Empresa::addPoints(Cliente cliente){
 	cliente.setPoints();
 }
 
 vector <Cliente*> Empresa::getClients(){
 	return clientes;
+};
+
+vector <Fornecedor*> Empresa::getFornecedores(){
+	return fornecedores;
 };
 
 int Empresa::clientNumber(){
@@ -108,3 +113,40 @@ int Empresa::writeToFile(){
 	};
 	file.close();
 };
+
+
+int Empresa::readFornecedoresFromFile(){
+	fstream file("fornecedores.txt", ios::in);
+		string line;
+		if (!file.is_open())
+		{
+			cout << "File does not exist yet !\n";
+			return 1;
+		};
+		while (getline(file, line))
+		{
+			size_t frstSemiColon = line.find(";");
+			size_t secndSemiColon = line.find(";", frstSemiColon + 1);
+			size_t thirdSemiColon = line.find(";", secndSemiColon + 1);
+			string name = line.substr(0, frstSemiColon - 1); //retira nome do fornecedor
+			string aux = line.substr(frstSemiColon + 2, secndSemiColon - frstSemiColon - 3); //retira nif do cliente
+			string morada = line.substr(secndSemiColon + 2, thirdSemiColon - secndSemiColon - 3); //retira morada do cliente
+			int nif;
+			nif = stoi( aux );
+			fornecedores.push_back(new Fornecedor(name, nif, morada); //fornecedor lido do ficheiro entra no vector de fornecedores
+		};
+		file.close();
+		return 1;
+};
+
+int Empresa::writeFornecedoresToFile(){
+	fstream file ("fornecedores.txt", ios::out | ios::trunc);
+	int i = 0;
+	while (i < getFornecedores().size())
+	{
+			file << getFornecedores()[i]->getNome() << " ; " << getFornecedores()[i]->getNIF() << " ; " << getFornecedores()[i]->getMorada() << endl;
+		};
+		i++;
+	};
+	file.close();
+}
