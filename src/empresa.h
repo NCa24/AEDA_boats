@@ -12,15 +12,17 @@
 class Empresa {
 	vector<Cliente*> clientes;
 	vector<Fornecedor*> fornecedores;
+	int numberOfClients;
 public:
 	Empresa();
 	void addCliente();
 	void addFornecedor();
-	void addPoints(ClienteRegistado);
+	void addPoints(Cliente);
 	void clientMenu();
 	int getClientsFromFile();
 	int writeToFile();
 	vector <Cliente*> getClients();
+	int clientNumber();
 };
 
 

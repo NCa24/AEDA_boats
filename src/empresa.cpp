@@ -18,7 +18,9 @@ void Empresa::addCliente(){
 	string nome;
 	cout << "Indique o nome do cliente:" << endl;
 	cin >> nome;
-	clientes.push_back(new ClienteRegistado(nome));
+	clientes.push_back(new ClienteRegistado(nome, numberOfClients));
+	numberOfClients = clientes.size();
+
 }
 
 void Empresa::addFornecedor(){
@@ -37,13 +39,17 @@ void Empresa::addFornecedor(){
 	this->fornecedores.push_back(f);
 }
 
-void Empresa::addPoints(ClienteRegistado cliente){
+void Empresa::addPoints(Cliente cliente){
 	cliente.setPoints();
 }
 
 vector <Cliente*> Empresa::getClients(){
 	return clientes;
-}
+};
+
+int Empresa::clientNumber(){
+	clientes.size();
+};
 
 int Empresa::getClientsFromFile(){
 	fstream file("clientes.txt", ios::in);
@@ -65,6 +71,7 @@ int Empresa::getClientsFromFile(){
 		points = stoi( aux2 );
 		clientes.push_back(new ClienteRegistado(name, id, points)); //cliente lido do ficheiro entra no vector
 	};
+	numberOfClients = clientes.size();
 	file.close();
 	return 1;
 }

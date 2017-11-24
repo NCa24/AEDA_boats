@@ -10,7 +10,7 @@ using namespace std;
 int main() {
 	Empresa empresa;
 	empresa.getClientsFromFile();
-	string decision = "in";
+	/*string decision = "in";
 	while(decision != "exit"){
 		cout << "1 - cliente; 2 - fornecedor:" << endl;
 		cin >> decision;
@@ -22,13 +22,14 @@ int main() {
 			} else if (decision == "registar"){
 				empresa.addCliente();
 			} else if (decision == "visitante"){
-				//visitante
+
 			}
 		} else if (decision == "fornecedor"){
 			//ir para a area do fornecedor
 		};
-	};
+	};*/
 	empresa.addCliente();
+	empresa.addPoints(empresa.getClients()[0]);
 	empresa.writeToFile();
 
 	return 0;

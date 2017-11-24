@@ -1,13 +1,6 @@
 #include "empresa.h"
 #include "cliente.h"
 
-int Cliente::currId = 0;
-
-Cliente::Cliente(){
-	//:id(++currId)
-	this->id = ++currId;
-};
-
 Cliente::Cliente(int id){
 	this->id = id;
 };
@@ -38,9 +31,12 @@ ClienteRegistado::ClienteRegistado(string nome, int id, int points) : Cliente (i
 };
 
 
-ClienteRegistado::ClienteRegistado(string nome):Cliente(){
+ClienteRegistado::ClienteRegistado(string nome, int id):Cliente(id){
 	this->name = nome;
 	this->nPontos = 0;
+};
+
+void Cliente::setPoints(){
 };
 
 void ClienteRegistado::setPoints(){
