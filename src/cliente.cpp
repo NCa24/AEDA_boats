@@ -1,18 +1,31 @@
-#include "Empresa.h"
-#include "Cliente.h"
+#include "empresa.h"
+#include "cliente.h"
 
-static int currId = 0;
+int Cliente::currId = 0;
 
-Cliente::Cliente():id(++currId){
+Cliente::Cliente(){
+	//:id(++currId)
+	this->id = ++currId;
+};
 
+Cliente::Cliente(int id){
+	this->id = id;
 };
 
 int Cliente::getId(){
 	return id;
 };
 
+string Cliente::getName(){
+	return 0;
+};
+
 string ClienteRegistado::getName(){
 	return name;
+};
+
+int Cliente::getNPontos(){
+	return 0;
 };
 
 int ClienteRegistado::getNPontos(){

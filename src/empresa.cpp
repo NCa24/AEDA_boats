@@ -1,4 +1,4 @@
-#include "Empresa.h"
+#include "empresa.h"
 
 using namespace std;
 
@@ -18,8 +18,7 @@ void Empresa::addCliente(){
 	string nome;
 	cout << "Indique o nome do cliente:" << endl;
 	cin >> nome;
-	ClienteRegistado temp(nome);
-	clientes.push_back(temp);
+	clientes.push_back(new ClienteRegistado(nome));
 }
 
 void Empresa::addFornecedor(){
@@ -38,18 +37,22 @@ void Empresa::addFornecedor(){
 	this->fornecedores.push_back(f);
 }
 
-void Empresa::addPoints(Cliente){
-	Cliente.setPoints();
+void Empresa::addPoints(ClienteRegistado cliente){
+	cliente.setPoints();
 }
 
-void Empresa::getClientsFromFile(){
+vector <Cliente*> Empresa::getClients(){
+	return clientes;
+}
+
+int Empresa::getClientsFromFile(){
 	fstream file("clientes.txt", ios::in);
 	string line;
 	if (!file.is_open())
 	{
 		cout << "File does not exist yet !\n";
 		return 1;
-	}
+	};
 	while (getline(file, line))
 	{
 		size_t frstSemiColon = line.find(";");
@@ -58,30 +61,25 @@ void Empresa::getClientsFromFile(){
 		string aux = line.substr(frstSemiColon + 2, secndSemiColon - frstSemiColon - 3); //retira id do cliente
 		string aux2 = line.substr (secndSemiColon + 1); //retira pontos do cliente
 		int id, points;
-		stringstream convert(aux);
-		convert >> id;
-		stringstream convert(aux2);
-		convert >> points;
-		ClienteRegistado tempClient(name, id, points); //cria cliente registado temporariamente para fazer push no vector
-		clientes.push_back(tempClient); //cliente lido do ficheiro entra no vector
-	}
+		id = stoi( aux );
+		points = stoi( aux2 );
+		clientes.push_back(new ClienteRegistado(name, id, points)); //cliente lido do ficheiro entra no vector
+	};
 	file.close();
+	return 1;
 }
 
-void Empresa::writeToFile()
-{
-	fstream file("clientes.txt", ios::out | ios::trunc);
-	if (!file.is_open())
-	{
-		cout << "File does not exist yet !\n";
-		return 1;
-	}
+int Empresa::writeToFile(){
+
+	fstream file ("clientes.txt", ios::out | ios::trunc);
 	int i = 0;
-	while (i < clientes.size())
+	while (i < getClients().size())
 	{
-		//formato da informaçao no ficheiro txt -> nome ; id ; pontos
-		file << clientes[i].getName() << " ; " << clientes[i].getId() << " ; " << clientes[i].getNPontos() << endl;
+		if(getClients()[i]->getName() != ""){
+			//formato da informaçao no ficheiro txt -> nome ; id ; pontos
+			file << getClients()[i]->getName() << " ; " << getClients()[i]->getId() << " ; " << getClients()[i]->getNPontos() << endl;
+		};
 		i++;
-	}
+	};
 	file.close();
-}
+};

@@ -16,11 +16,13 @@ protected:
 public:
 	Cliente();
 	Cliente(int id);
-	~Cliente();
 	int getId();
+	virtual string getName();
+	virtual int getNPontos();
+
 };
 
-class ClienteRegistado: public Cliente{
+class ClienteRegistado : public Cliente{
 	string name;
 	int nPontos;
 public:

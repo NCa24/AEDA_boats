@@ -1,4 +1,4 @@
-#include "Fornecedor.h"
+#include "fornecedor.h"
 
 
 Fornecedor::Fornecedor(string nome, int nif, string morada){
