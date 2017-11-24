@@ -4,6 +4,9 @@
 #include <string>
 #include <vector>
 #include <sstream>
+
+#include "reserva.h"
+
 #include <iostream>
 
 using namespace std;
@@ -18,6 +21,7 @@ class Oferta {
 	int lotacao;
 	int distancia;
 	vector<int> datasIndisponiveis;
+	vector<Reserva*> reservas;
 	//vector<Cliente*> clientes;
 public:
 	Oferta(int, int, vector<int>);
@@ -26,6 +30,7 @@ public:
 	void setPreco(int, int);
 	int getLugaresVagos();
 	bool checkData(int data); //verifica se a data esta disponivel
+
 	//int getDatasIndisponiveis(); mudar para vector<int> ou stringstream
 };
 
@@ -38,6 +43,7 @@ public:
 	Fornecedor(string nome, int nif, string morada);
 	void printOfertas(int data, int hora);
 	void addOfertas(int n);
+	string getNome();
 };
 
 

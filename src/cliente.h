@@ -15,17 +15,20 @@ public:
 	int getId();
 	virtual string getName();
 	virtual int getNPontos();
+<<<<<<< HEAD
 	virtual void setPoints();
 
+=======
+	//void criarReserva(int, int, Oferta);
+>>>>>>> branch 'master' of https://github.com/NCa24/AEDA_boats.git
 };
 
-class ClienteRegistado : public Cliente{
+class ClienteRegistado: public Cliente{
 	string name;
 	int nPontos;
 public:
 	ClienteRegistado(string nome, int id);
 	ClienteRegistado(string nome, int id, int points);
-	void inscreverCliente(/*TODO: Criar Evento*/);
 	int getId();
 	string getName();
 	int getNPontos();

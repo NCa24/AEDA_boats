@@ -1,0 +1,2 @@
+carlos ; 0 ; 0
+miguel ; 1 ; 0

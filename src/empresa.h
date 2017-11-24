@@ -23,6 +23,7 @@ public:
 	int writeToFile();
 	vector <Cliente*> getClients();
 	int clientNumber();
+	void loginFornecedor();
 };
 
 
